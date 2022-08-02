@@ -1,10 +1,10 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
   <div class="card text-bg-dark">
-    <img src="src/assets/carro1.png" class="card-img" alt="...">
+    <img src="@/assets/carro1.png" class="card-img" alt="...">
     <div class="card-img-overlay">
-      <h5 class="card-title titulo"><img src="src/assets/titulo.png" class="img-fluid position-relative" alt="..."></h5>
-      <h5 class="card-title caracteristicas"><img src="src/assets/caracteristicas.png"
+      <h5 class="card-title titulo"><img src="@/assets/titulo.png" class="img-fluid position-relative" alt="..."></h5>
+      <h5 class="card-title caracteristicas"><img src="@/assets/caracteristicas.png"
           class="img-fluid position-relative" alt="..."></h5>
 
 

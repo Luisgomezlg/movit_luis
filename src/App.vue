@@ -8,7 +8,7 @@
           class="img-fluid position-relative" alt="..."></h5>
 
 
-      <form @submit.prevent="GenerarEnvio">
+      <form id="formulario" @submit.prevent="GenerarEnvio">
         <div id="formu" class="p-4 shadow overflow-hidden sm:rounded-md"
           style="background: #f5f5f5; width: 25%; float: right; margin-top: -80vh;">
           <div class="px-4 sm:p-6">
@@ -56,7 +56,7 @@
                 <select id="departamento" v-model="departa" @change="onChange($event)" required name="departamento"
                   autocomplete="departamento"
                   class="rounded-full mt-1 block w-full py-2 px-3 border border-gray-300 bg-white  shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                  <option :value="Departamento.id" v-for="(Departamento, index) in Departamento">{{
+                  <option :value="Departamento.departamento" v-for="(Departamento, index) in Departamento">{{
                       Departamento.departamento
                   }}</option>
 
@@ -84,6 +84,7 @@
             <button id="enviar" type="submit"
               class="rounded-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium  text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Enviar
               datos</button>
+              
           </div>
         </div>
       </form>
@@ -141,12 +142,7 @@ export default {
           function (respo) {
             if (respo.data == true) {
               Swal.fire("¡Sus datos han sido enviados correctamente!", "", "success");
-              enquiryform.modelo = '';
-              enquiryform.nombre = '';
-              enquiryform.email = '';
-              enquiryform.numero = '';
-              enquiryform.departa = '';
-              enquiryform.ciudad = '';
+                document.getElementById("formulario").reset();
             } else {
               Swal.fire("¡Lo sentimos, no se enviaron datos!", "", "error");
             }

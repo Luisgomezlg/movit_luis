@@ -116,12 +116,7 @@ export default {
     return {
       Departamento: [],
       Ciudad: [],
-      //nombre: "",
-      //modelo: "",
-      //email: "",
-      //numero: "",
-      //departa: "",
-      //ciudad: "",
+
     };
   },
   mounted() {

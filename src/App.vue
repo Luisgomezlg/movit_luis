@@ -18,8 +18,8 @@
 
 
               <div class="col-span-6 ">
-                <label for="country" class="block text-sm font-medium text-gray-700">Selecciona tu modelo</label>
-                <select id="country" required v-model="modelo" name="country" autocomplete="country-name"
+                <label for="modelo" class="block text-sm font-medium text-gray-700">Selecciona tu modelo</label>
+                <select id="modelo" required v-model="modelo" name="modelo" autocomplete="country-name"
                   class="mt-1 block rounded-full w-full py-2 px-3 border border-gray-300 bg-white  shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                   <option value="Rexton_G4">Rexton G4</option>
                   <option value="Rexton_Prueba2">Rexton Prueba 2</option>
@@ -31,30 +31,30 @@
 
 
               <div class="col-span-6">
-                <label for="street-address" class="block text-sm font-medium text-gray-700">Nombre Completo</label>
-                <input type="text" required v-model="nombre" name="street-address" id="street-address"
-                  autocomplete="street-address"
+                <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre Completo</label>
+                <input type="text" required v-model="nombre" name="nombre" id="nombre"
+                  autocomplete="nombre"
                   class="rounded-full mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
               </div>
 
               <div class="col-span-6">
-                <label for="street-address" class="block text-sm font-medium text-gray-700">Email</label>
-                <input type="email" required v-model="email" name="street-address" id="street-address"
-                  autocomplete="street-address"
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" required v-model="email" name="email" id="email"
+                  autocomplete="email"
                   class="rounded-full mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
               </div>
 
               <div class="col-span-6">
-                <label for="street-address" class="block text-sm font-medium text-gray-700">Numero Celular</label>
-                <input type="text" required v-model="numero" name="street-address" id="street-address"
-                  autocomplete="street-address"
+                <label for="email" class="block text-sm font-medium text-gray-700">Numero Celular</label>
+                <input type="text" required v-model="numero" name="numero" id="numero"
+                  autocomplete="email"
                   class="rounded-full mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
               </div>
 
               <div class="col-span-6 sm:col-span-3">
-                <label for="country" class="block text-sm font-medium text-gray-700">Departamento</label>
-                <select id="country" @change="onChange($event)" required v-model="departamento" name="country"
-                  autocomplete="country-name"
+                <label for="departamento" class="block text-sm font-medium text-gray-700">Departamento</label>
+                <select id="departamento" v-model="departa" @change="onChange($event)" required name="departamento"
+                  autocomplete="departamento"
                   class="rounded-full mt-1 block w-full py-2 px-3 border border-gray-300 bg-white  shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                   <option :value="Departamento.id" v-for="(Departamento, index) in Departamento">{{
                       Departamento.departamento
@@ -64,8 +64,8 @@
               </div>
 
               <div class="col-span-6 sm:col-span-3">
-                <label for="country" class="block text-sm font-medium text-gray-700">Ciudad</label>
-                <select id="country" required v-model="ciudad" name="country" autocomplete="country-name"
+                <label for="ciudad" class="block text-sm font-medium text-gray-700">Ciudad</label>
+                <select id="ciudad" required v-model="ciudad" name="ciudad" autocomplete="ciudad"
                   class="rounded-full mt-1 block w-full py-2 px-3 border border-gray-300 bg-white  shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                   <option :value="Ciudad" v-for="(Ciudad, index) in Ciudad">{{ Ciudad }}</option>
                 </select>
@@ -115,12 +115,12 @@ export default {
     return {
       Departamento: [],
       Ciudad: [],
-      nombre: "",
-      modelo: "",
-      email: "",
-      numero: "",
-      departamento: "",
-      ciudad: "",
+      //nombre: "",
+      //modelo: "",
+      //email: "",
+      //numero: "",
+      //departa: "",
+      //ciudad: "",
     };
   },
   mounted() {
@@ -137,7 +137,7 @@ export default {
       e.preventDefault();
       var enquiryform = this;
       axios.get("https://movitluis.000webhostapp.com/post.php?action=enviaremail&" + "modelo" + "=" + enquiryform.modelo + "&nombre" + "=" + enquiryform.nombre
-        + "&email" + "=" + enquiryform.email + "&numero" + "=" + enquiryform.numero + "&departamento" + "=" + enquiryform.departamento + "&ciudad" + "=" + enquiryform.ciudad).then(
+        + "&email" + "=" + enquiryform.email + "&numero" + "=" + enquiryform.numero + "&departamento" + "=" + enquiryform.departa + "&ciudad" + "=" + enquiryform.ciudad).then(
           function (respo) {
             if (respo.data == true) {
               Swal.fire("¡Sus datos han sido enviados correctamente!", "", "success");
@@ -145,7 +145,7 @@ export default {
               enquiryform.nombre = '';
               enquiryform.email = '';
               enquiryform.numero = '';
-              enquiryform.departamento = '';
+              enquiryform.departa = '';
               enquiryform.ciudad = '';
             } else {
               Swal.fire("¡Lo sentimos, no se enviaron datos!", "", "error");

@@ -149,14 +149,14 @@ export default {
     },
 
     onChange(event) {
-      if (event.target.value == 1) {
+      if (event.target.value == "Antioquia") {
         axios
           .get('https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.min.json')
           .then((response) => {
             this.Ciudad = response.data[1].ciudades
             console.log(this.Ciudad)
           })
-      } else if (event.target.value == 12) {
+      } else if (event.target.value == "Cundinamarca") {
         axios
           .get('https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.min.json')
           .then((response) => {

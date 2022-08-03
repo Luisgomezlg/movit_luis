@@ -46,7 +46,7 @@
 
               <div class="col-span-6">
                 <label for="email" class="block text-sm font-medium text-gray-700">Numero Celular</label>
-                <input type="number" maxlength="10" required v-model="numero" name="numero" id="numero"
+                <input type="number" max="9999999999" maxlength="10" required v-model="numero" name="numero" id="numero"
                   autocomplete="email"
                   class="rounded-full mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 " />
               </div>
